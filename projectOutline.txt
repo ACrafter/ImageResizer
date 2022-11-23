@@ -1,0 +1,14 @@
+1) Functions
+    1.1) Sharp
+        1.1.1) getImgData => Retrive the specific image from the images folder.
+        1.1.2) ResizeImg => Resize said image & save it to the processed folder.
+    1.2) Express/Routes
+        1.2.1) getParams => Retrive the important params in the URL.
+2) Endpoints
+    2.1) For JPEG images
+    2.2) For PNG images
+3) Tests
+    3.1) getImgData Test => Expected return metadata
+    3.2) ResizeImg Test => Expected return changed metadata (width, height)
+    3.3) JPEG Endpoint
+    3.4) PNG Endpoint
