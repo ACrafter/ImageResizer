@@ -19,6 +19,9 @@ An API that resizes & sends images back. It uses **Sharp** as well as the native
 - Booting up the server <br />
 `npm run server`
 
+- Running Eslint <br />
+`npm run lint`
+
 ---
 
 ## Endpoints
