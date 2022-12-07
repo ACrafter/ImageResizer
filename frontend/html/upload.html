@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Resizer</title>
+</head>
+<body>
+    <h2>Upload your image</h2>
+    <form action="/image" enctype="multipart/form-data" method="post">
+      <div>File: <input type="file" name="someExpressFiles"/></div>
+      <div>Exact File Name: <input type="text" name="title" /></div>
+      <div>Width: <input type="number" name="width"/></div>
+      <div>Height: <input type="number" name="height"/></div>
+      <input type="submit" value="Upload"/>
+    </form>
+</body>
+</html>
