@@ -1,12 +1,29 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import Express from "express";
 import path from "path";
+import formidable from "formidable";
 import { getImg } from "../controllers/jpeg";
 
 const router = Express.Router();
 
 router.get("/", (req, res) => {
-  res.send("Go to /jpg");
+  res.sendFile(path.resolve("frontend/index.html"))
+})
+
+router.get("/image", (req, res) => {
+  res.sendFile(path.resolve("frontend/upload.html"))
+});
+
+router.post("/image", (req, res, next) => {
+  const form = formidable({
+    multiples: true,
+    keepExtensions: true,
+    uploadDir: path.join(__dirname, "..", "..", "Images", "full"),
+  });
+
+  form.parse(req, (_err, fields, files) => {
+    res.json({ fields, files });
+  });
 });
 
 router.get(
