@@ -5,26 +5,31 @@ import path from "path";
 const processImg = async (
   name: string,
   width: number,
-  height: number
+  height: number,
+  ext: string
 ): Promise<number | string> => {
+  console.log(typeof(width));
   let img;
   let data;
   const fullPath: string = path.join(
     __dirname,
     "..",
     "..",
+    "Public",
     "Images",
-    "full",
-    name + ".jpg"
+    "uploaded",
+    `${name}.${ext}`
   );
   const processedPath: string = path.join(
     __dirname,
     "..",
     "..",
+    "Public",
     "Images",
     "processed",
-    name + String(width) + String(height) + ".jpg"
+    `${name}${String(width)}${String(height)}.${ext}`
   );
+
   const imgExist = fs.existsSync(fullPath);
   if (imgExist) {
     img = sharp(fullPath);
@@ -49,22 +54,21 @@ const processImg = async (
 const getImg = async (
   name: string,
   width: number,
-  height: number
-): Promise<number> => {
+  height: number,
+  ext: string
+): Promise<void> => {
   const processedPath: string = path.join(
     __dirname,
     "..",
     "..",
+    "Public",
     "Images",
     "processed",
-    name + String(width) + String(height) + ".jpg"
+    `${name}${String(width)}${String(height)}.${ext}`
   );
   const imgExist = fs.existsSync(processedPath);
-  if (imgExist) {
-    return 0;
-  } else {
-    await processImg(name, width, height);
-    return -1;
+  if (!imgExist) {
+    await processImg(name, width, height, ext);
   }
 };
 
