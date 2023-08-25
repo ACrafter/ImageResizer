@@ -6,7 +6,8 @@ const app = Express();
 const port = 3000;
 
 app.use("/", router);
-app.use(Express.static(path.resolve("frontend")));
+app.use(Express.static(path.resolve("Public")));
+app.set('view engine', 'ejs');
 app.use(Express.urlencoded({ extended: true }));
 
 
